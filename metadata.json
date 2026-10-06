@@ -1,0 +1,6 @@
+{
+  "name": "Nexa Play",
+  "description": "Página de vendas oficial do Nexa Play com ofertas exclusivas Start e Premium, social proof do WhatsApp e Instagram, vídeo de apresentação e suporte.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
