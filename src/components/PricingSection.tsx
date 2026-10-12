@@ -26,7 +26,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
           Duas Ofertas Exclusivas
         </h2>
         <p className="mt-2 text-sm text-slate-400 max-w-lg mx-auto">
-          Sem fidelidade, sem taxas de cancelamento. Liberação instantânea no seu aparelho.
+          Escolha seu acesso, pague uma única vez e aproveite. Sem mensalidade, renovação automática ou taxas escondidas.
         </p>
       </div>
 
@@ -180,7 +180,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
 
             <div className="divide-y divide-darkBorder text-xs sm:text-sm">
               <div className="py-2.5 flex justify-between">
-                <span className="text-slate-400">Mensalidade</span>
+                <span className="text-slate-400">Pagamento</span>
                 <span className="text-slate-300">Start: R$ 19,90</span>
                 <span className="text-secondaryCyan font-bold">Premium: R$ 49,90</span>
               </div>

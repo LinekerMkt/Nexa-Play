@@ -50,7 +50,7 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onScrollToPricing }) => {
 
       {/* Subtitle */}
       <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-        Tenha mais de 120 mil conteúdos, todos os canais de esportes ao vivo, estreias do cinema e séries completas na sua Smart TV ou celular a partir de <strong className="text-secondaryCyan font-semibold">R$ 19,90/mês</strong>.
+        Tenha mais de 120 mil conteúdos, todos os canais de esportes ao vivo, estreias do cinema e séries completas na sua Smart TV ou celular a partir de <strong className="text-secondaryCyan font-semibold">R$ 19,90 em pagamento único</strong>.
       </p>
 
       {/* Container do Vídeo de Apresentação */}

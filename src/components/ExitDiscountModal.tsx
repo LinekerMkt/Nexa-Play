@@ -74,11 +74,11 @@ export const ExitDiscountModal: React.FC<ExitDiscountModalProps> = ({
             <span className="text-lg font-bold text-accentAmber">Por apenas R$</span>
             <span className="text-5xl font-black text-white tracking-tight">29</span>
             <span className="text-2xl font-bold text-white">,90</span>
-            <span className="text-xs text-slate-400 font-medium">/mês</span>
+            <span className="text-xs text-slate-400 font-medium">pagamento único</span>
           </div>
 
           <p className="text-[11px] text-accentAmber font-medium mt-1">
-            ★ Mensalidade promocional garantida todos os meses
+            ★ Acesso completo com pagamento único
           </p>
         </div>
 

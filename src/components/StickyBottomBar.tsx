@@ -14,7 +14,7 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({ onScrollToPric
           <span className="text-[10px] font-bold text-secondaryCyan uppercase tracking-wider">A partir de</span>
           <div className="flex items-baseline gap-1">
             <span className="text-sm font-black text-white">R$ 19,90</span>
-            <span className="text-[10px] text-slate-400">/mês</span>
+            <span className="text-[10px] text-slate-400">pagamento único</span>
           </div>
         </div>
 

@@ -16,7 +16,7 @@ export const planStart: Plan = {
   price: "19",
   cents: "90",
   originalPrice: "R$ 35,00",
-  billingPeriod: "/mês",
+  billingPeriod: "pagamento único",
   badge: "Econômico",
   isHighlighted: false,
   screensCount: 1,
@@ -32,7 +32,7 @@ export const planStart: Plan = {
     "Suporte padrão via WhatsApp"
   ],
   buttonText: "QUERO O PLANO START • R$ 19,90",
-  whatsappMessage: "Olá! Gostaria de assinar o Plano Start do Nexa Play por R$ 19,90/mês!"
+  whatsappMessage: "Olá! Gostaria de assinar o Plano Start do Nexa Play por R$ 19,90 em pagamento único!"
 };
 
 export const planPremium: Plan = {
@@ -42,7 +42,7 @@ export const planPremium: Plan = {
   price: "49",
   cents: "90",
   originalPrice: "R$ 89,90",
-  billingPeriod: "/mês",
+  billingPeriod: "pagamento único",
   badge: "MAIS ESCOLHIDO 🔥",
   isHighlighted: true,
   screensCount: 4,
@@ -60,7 +60,7 @@ export const planPremium: Plan = {
     "Garantia incondicional de 7 dias ou seu dinheiro de volta"
   ],
   buttonText: "ASSINAR PLANO PREMIUM VIP • R$ 49,90",
-  whatsappMessage: "Olá! Gostaria de assinar o Plano Premium do Nexa Play por R$ 49,90/mês com acesso em 4 telas!"
+  whatsappMessage: "Olá! Gostaria de assinar o Plano Premium do Nexa Play por R$ 49,90 em pagamento único com acesso em 4 telas!"
 };
 
 export const specialDiscountPlan: Plan = {
@@ -70,14 +70,14 @@ export const specialDiscountPlan: Plan = {
   price: "29",
   cents: "90",
   originalPrice: "R$ 49,90",
-  billingPeriod: "/mês",
+  billingPeriod: "pagamento único",
   badge: "DESCONTO EXCLUSIVO R$ 20 OFF ⚡",
   isHighlighted: true,
   screensCount: 4,
   screensDescription: "Até 4 Telas Simultâneas",
   resolutionDescription: "Ultra HD 4K & Full HD",
   features: [
-    "TUDO do Plano Premium por apenas R$ 29,90/mês fixos",
+    "TUDO do Plano Premium por apenas R$ 29,90 em pagamento único",
     "4 Telas simultâneas liberadas",
     "Canais 4K + Filmes + Séries completas",
     "Servidor CDN Turbo Anti-Travamentos",
@@ -85,7 +85,7 @@ export const specialDiscountPlan: Plan = {
     "Sem fidelidade e sem taxas extras"
   ],
   buttonText: "QUERO O PREMIUM POR R$ 29,90 AGORA!",
-  whatsappMessage: "Olá! Quero aproveitar a Oferta Exclusiva de Recusa do Plano Premium do Nexa Play por apenas R$ 29,90/mês!"
+  whatsappMessage: "Olá! Quero aproveitar a Oferta Exclusiva de Recusa do Plano Premium do Nexa Play por apenas R$ 29,90 em pagamento único!"
 };
 
 export const whatsAppProofs: WhatsAppProof[] = [
