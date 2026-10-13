@@ -56,3 +56,19 @@ body {
 .float-anim {
   animation: float 3s ease-in-out infinite;
 }
+
+@keyframes testimonialSlide {
+  0% { opacity: 0; transform: translateX(18px); }
+  10%, 90% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-18px); }
+}
+
+.testimonial-slide {
+  animation: testimonialSlide 5.5s ease-in-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-slide {
+    animation: none;
+  }
+}
