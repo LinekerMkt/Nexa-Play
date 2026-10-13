@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { X, Flame, Check, Timer, Zap } from 'lucide-react';
 
+const SPECIAL_OFFER_URL = 'https://pay.cakto.com.br/k2g295q_1197524';
+
 interface ExitDiscountModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -118,13 +120,16 @@ export const ExitDiscountModal: React.FC<ExitDiscountModalProps> = ({
 
         {/* Botão de Aceite da Oferta */}
         <div className="mt-6 space-y-2.5">
-          <button
+          <a
+            href={SPECIAL_OFFER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={onAcceptSpecialOffer}
             className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-accentEmerald to-emerald-600 hover:brightness-110 text-white font-black text-sm tracking-wide shadow-xl shadow-accentEmerald/30 transition-all transform hover:scale-102 active:scale-98 flex items-center justify-center gap-2"
           >
             <Zap className="w-4 h-4 fill-current" />
             <span>QUERO O PREMIUM POR R$ 29,90 AGORA!</span>
-          </button>
+          </a>
 
           <button
             type="button"

@@ -82,12 +82,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
 
           {/* Botão de Assinatura */}
           <div className="mt-8">
-            <button
-              onClick={() => onSelectPlan(planStart)}
-              className="w-full py-4 px-6 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-black text-sm tracking-wide transition-all active:scale-98"
+            <a
+              href={planStart.checkoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 px-6 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-black text-sm tracking-wide transition-all active:scale-98 flex items-center justify-center"
             >
               {planStart.buttonText}
-            </button>
+            </a>
           </div>
         </div>
 
@@ -142,12 +144,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
 
           {/* Botão de Assinatura */}
           <div className="mt-8 space-y-2.5">
-            <button
-              onClick={() => onSelectPlan(planPremium)}
-              className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-primaryPurple to-primaryPurpleGlow hover:brightness-110 text-white font-black text-sm tracking-wide shadow-lg shadow-primaryPurple/40 transition-all active:scale-98"
+            <a
+              href={planPremium.checkoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-primaryPurple to-primaryPurpleGlow hover:brightness-110 text-white font-black text-sm tracking-wide shadow-lg shadow-primaryPurple/40 transition-all active:scale-98 flex items-center justify-center"
             >
               {planPremium.buttonText}
-            </button>
+            </a>
 
             {/* Gatilho para Oferta de Recusa (R$ 29,90) */}
             <div className="text-center pt-1">
@@ -157,7 +161,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                 className="text-xs text-accentAmber hover:underline font-medium inline-flex items-center gap-1"
               >
                 <Tag className="w-3.5 h-3.5" />
-                <span>Achou R$ 49,90 caro? Toque aqui para oferta especial</span>
+                <span>Achou R$ 47,90 caro? Toque aqui para oferta especial</span>
               </button>
             </div>
           </div>

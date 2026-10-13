@@ -32,7 +32,8 @@ export const planStart: Plan = {
     "Suporte padrão via WhatsApp"
   ],
   buttonText: "QUERO O PLANO START • R$ 19,90",
-  whatsappMessage: "Olá! Gostaria de assinar o Plano Start do Nexa Play por R$ 19,90 em pagamento único!"
+  whatsappMessage: "Olá! Gostaria de assinar o Plano Start do Nexa Play por R$ 19,90 em pagamento único!",
+  checkoutUrl: "https://pay.cakto.com.br/wk66e7o_1197497"
 };
 
 export const planPremium: Plan = {
@@ -59,17 +60,18 @@ export const planPremium: Plan = {
     "Suporte VIP Prioritário 24/7 no WhatsApp 47 9 9714-4452",
     "Garantia incondicional de 7 dias ou seu dinheiro de volta"
   ],
-  buttonText: "ASSINAR PLANO PREMIUM VIP • R$ 49,90",
-  whatsappMessage: "Olá! Gostaria de assinar o Plano Premium do Nexa Play por R$ 49,90 em pagamento único com acesso em 4 telas!"
+  buttonText: "ASSINAR PLANO PREMIUM VIP • R$ 47,90",
+  whatsappMessage: "Olá! Gostaria de assinar o Plano Premium do Nexa Play por R$ 47,90 em pagamento único com acesso em 4 telas!",
+  checkoutUrl: "https://pay.cakto.com.br/cnx23fk_1197518"
 };
 
 export const specialDiscountPlan: Plan = {
   id: "special_2990",
   name: "Plano Premium VIP (Oferta Exclusiva)",
-  subtitle: "Mesmos benefícios do Plano Premium de R$ 49,90 por preço promocional!",
+  subtitle: "Mesmos benefícios do Plano Premium de R$ 47,90 por preço promocional!",
   price: "29",
   cents: "90",
-  originalPrice: "R$ 49,90",
+  originalPrice: "R$ 47,90",
   billingPeriod: "pagamento único",
   badge: "DESCONTO EXCLUSIVO R$ 20 OFF ⚡",
   isHighlighted: true,
@@ -85,7 +87,8 @@ export const specialDiscountPlan: Plan = {
     "Sem fidelidade e sem taxas extras"
   ],
   buttonText: "QUERO O PREMIUM POR R$ 29,90 AGORA!",
-  whatsappMessage: "Olá! Quero aproveitar a Oferta Exclusiva de Recusa do Plano Premium do Nexa Play por apenas R$ 29,90 em pagamento único!"
+  whatsappMessage: "Olá! Quero aproveitar a Oferta Exclusiva de Recusa do Plano Premium do Nexa Play por apenas R$ 29,90 em pagamento único!",
+  checkoutUrl: "https://pay.cakto.com.br/k2g295q_1197524"
 };
 
 export const whatsAppProofs: WhatsAppProof[] = [
@@ -282,8 +285,8 @@ export const faqList: FaqItem[] = [
     answer: "Para canais em qualidade padrão e HD, uma conexão a partir de 15 Mbps é suficiente. Para canais e filmes em Full HD e 4K Ultra HDR, recomendamos 30 Mbps ou mais para carregamento instantâneo sem buffering."
   },
   {
-    question: "Qual a diferença entre o Plano Start (R$ 19,90) e o Plano Premium (R$ 49,90)?",
-    answer: "O Plano Start (R$ 19,90) dá direito a 1 tela simultânea com mais de 40.000 conteúdos em qualidade SD/HD e suporte padrão. Já o Plano Premium (R$ 49,90) libera até 4 telas simultâneas para toda a família, imagem em 4K Ultra HDR, +120.000 conteúdos completos, canais Premiere/Combate/HBO, filmes de cinema atualizados diariamente e suporte VIP prioritário 24/7."
+    question: "Qual a diferença entre o Plano Start (R$ 19,90) e o Plano Premium (R$ 47,90)?",
+    answer: "O Plano Start (R$ 19,90) dá direito a 1 tela simultânea com mais de 40.000 conteúdos em qualidade SD/HD e suporte padrão. Já o Plano Premium (R$ 47,90) libera até 4 telas simultâneas para toda a família, imagem em 4K Ultra HDR, +120.000 conteúdos completos, canais Premiere/Combate/HBO, filmes de cinema atualizados diariamente e suporte VIP prioritário 24/7."
   },
   {
     question: "Tenho garantia caso não goste?",
