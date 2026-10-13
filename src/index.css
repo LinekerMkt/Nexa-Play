@@ -6,8 +6,18 @@
   color-scheme: dark;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
+  min-width: 0;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #090D16;
   color: #F8FAFC;
@@ -55,4 +65,20 @@ body {
 
 .float-anim {
   animation: float 3s ease-in-out infinite;
+}
+
+@keyframes testimonialSlide {
+  0% { opacity: 0; transform: translateX(18px); }
+  10%, 90% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-18px); }
+}
+
+.testimonial-slide {
+  animation: testimonialSlide 5.5s ease-in-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-slide {
+    animation: none;
+  }
 }

@@ -1,12 +1,40 @@
-import React, { useState } from 'react';
-import { MessageCircle, Instagram, CheckCheck, Star, ShieldCheck } from 'lucide-react';
-import { whatsAppProofs, instagramProofs, WHATSAPP_FORMATTED, getWhatsAppLink } from '../data/nexaPlayData';
+import React, { useEffect, useState } from 'react';
+import { MessageCircle, Instagram, Star, ShieldCheck } from 'lucide-react';
+import { instagramProofs, WHATSAPP_FORMATTED, getWhatsAppLink } from '../data/nexaPlayData';
+
+const testimonialImages = [
+  {
+    src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Feedback_sobre_o_Nexa_Play-82v6VtFoFUonCEC9UA8tjQct3I46eF.png',
+    alt: 'Conversa no WhatsApp com feedback sobre a qualidade e variedade do Nexa Play',
+  },
+  {
+    src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nexa%20Play%20support%20appreciation%20chat-woYX4yVWsLlXAje9VWhrZo3DtWGdSz.png',
+    alt: 'Conversa no WhatsApp elogiando a facilidade de uso do Nexa Play',
+  },
+  {
+    src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nexa%20Play%20support%20chat%20header-MxVu3z0BfULdEaT4NWS1t242TQa0dh.png',
+    alt: 'Conversa no WhatsApp destacando a variedade de conteúdos do Nexa Play',
+  },
+  {
+    src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nexa%20Play%20support%20chat-3bHtC23ByPbS4xckZtZnvaxA3BRRCm.png',
+    alt: 'Conversa no WhatsApp sobre o atendimento rápido do Nexa Play',
+  },
+];
 
 export const SocialProofSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'whatsapp' | 'instagram'>('whatsapp');
+  const [activeImage, setActiveImage] = useState(0);
+
+  useEffect(() => {
+    if (activeTab !== 'whatsapp') return;
+    const interval = window.setInterval(() => {
+      setActiveImage((current) => (current + 1) % testimonialImages.length);
+    }, 5500);
+    return () => window.clearInterval(interval);
+  }, [activeTab]);
 
   return (
-    <section className="py-14 px-4 max-w-5xl mx-auto">
+    <section className="w-full max-w-5xl mx-auto px-3 py-10 sm:px-4 sm:py-14">
       {/* Badge Header */}
       <div className="text-center">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accentEmerald/15 border border-accentEmerald/30 text-accentEmerald text-xs font-bold uppercase tracking-wider mb-2">
@@ -50,60 +78,47 @@ export const SocialProofSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Lista de Conversas do WhatsApp */}
+      {/* Carrossel de depoimentos enviados pelos clientes */}
       {activeTab === 'whatsapp' && (
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 animate-fadeIn">
-          {whatsAppProofs.map((proof) => (
-            <div
-              key={proof.id}
-              className="rounded-2xl overflow-hidden bg-whatsAppChatBg border border-emerald-950/80 shadow-xl flex flex-col"
+        <div className="mt-8 mx-auto w-full max-w-2xl">
+          <div className="relative overflow-hidden rounded-3xl border border-emerald-950/80 bg-whatsAppChatBg p-2 shadow-2xl shadow-black/30 sm:p-3">
+            <img
+              key={testimonialImages[activeImage].src}
+              src={testimonialImages[activeImage].src}
+              alt={testimonialImages[activeImage].alt}
+              className="testimonial-slide block h-auto max-h-[720px] w-full rounded-2xl object-contain"
+            />
+            <button
+              type="button"
+              aria-label="Depoimento anterior"
+              onClick={() => setActiveImage((activeImage - 1 + testimonialImages.length) % testimonialImages.length)}
+              className="absolute left-5 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-xl text-white transition hover:bg-black/80"
             >
-              {/* Barra do Topo do WhatsApp */}
-              <div className="flex items-center justify-between px-4 py-3 bg-[#1F2C34] border-b border-white/5">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#00A884] to-[#005C4B] flex items-center justify-center text-white text-xs font-bold">
-                    {proof.avatarInitials}
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-white leading-tight">
-                      {proof.clientName}
-                    </h4>
-                    <p className="text-[11px] text-slate-400">
-                      {proof.clientCity} • <span className="text-whatsAppGreen font-medium">online</span>
-                    </p>
-                  </div>
-                </div>
-
-                <span className="px-2.5 py-1 rounded-md bg-whatsAppGreen/15 text-whatsAppGreen text-[10px] font-bold">
-                  {proof.highlightTag}
-                </span>
-              </div>
-
-              {/* Corpo da Conversa com Balões */}
-              <div className="p-4 space-y-3 flex-1 flex flex-col justify-end bg-gradient-to-b from-[#0B141A] to-[#0D1920]">
-                {proof.messages.map((msg, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex ${msg.isFromClient ? 'justify-start' : 'justify-end'}`}
-                  >
-                    <div
-                      className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs sm:text-sm leading-relaxed shadow-sm ${
-                        msg.isFromClient
-                          ? 'bg-whatsAppBubbleReceived text-white rounded-bl-xs'
-                          : 'bg-whatsAppBubbleSent text-white rounded-br-xs'
-                      }`}
-                    >
-                      <p>{msg.text}</p>
-                      <div className="mt-1 flex items-center justify-end gap-1 text-[10px] text-slate-400">
-                        <span>{msg.time}</span>
-                        <CheckCheck className="w-3.5 h-3.5 text-[#53BDEB]" />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+              ‹
+            </button>
+            <button
+              type="button"
+              aria-label="Próximo depoimento"
+              onClick={() => setActiveImage((activeImage + 1) % testimonialImages.length)}
+              className="absolute right-5 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-xl text-white transition hover:bg-black/80"
+            >
+              ›
+            </button>
+          </div>
+          <div className="mt-4 flex justify-center gap-2" role="tablist" aria-label="Depoimentos">
+            {testimonialImages.map((image, index) => (
+              <button
+                key={image.src}
+                type="button"
+                role="tab"
+                aria-label={`Ver depoimento ${index + 1}`}
+                aria-selected={activeImage === index}
+                onClick={() => setActiveImage(index)}
+                className={`h-2 rounded-full transition-all ${activeImage === index ? 'w-8 bg-whatsAppGreen' : 'w-2 bg-slate-600 hover:bg-slate-400'}`}
+              />
+            ))}
+          </div>
+          <p className="mt-3 text-center text-xs text-slate-400">Depoimentos reais de clientes Nexa Play</p>
         </div>
       )}
 
