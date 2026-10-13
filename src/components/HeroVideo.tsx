@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize2, Edit3, Zap, Shield, Tv, Clock, MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Edit3, Zap, Shield, Tv, Clock, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink } from '../data/nexaPlayData';
 
 interface HeroVideoProps {
@@ -7,26 +7,9 @@ interface HeroVideoProps {
 }
 
 export const HeroVideo: React.FC<HeroVideoProps> = ({ onScrollToPricing }) => {
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [isMuted, setIsMuted] = useState<boolean>(false);
-  const [progress, setProgress] = useState<number>(32);
-  const [videoUrl, setVideoUrl] = useState<string>('https://nexaplay.tv/apresentacao-oficial.mp4');
+  const [videoUrl, setVideoUrl] = useState<string>('https://www.youtube.com/embed/e7AIYABaBag?rel=0');
   const [showEditModal, setShowEditModal] = useState<boolean>(false);
   const [tempUrlInput, setTempUrlInput] = useState<string>(videoUrl);
-
-  // Simulated playback progression
-  useEffect(() => {
-    let interval: any;
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setProgress((prev) => (prev >= 100 ? 0 : prev + 1.2));
-      }, 300);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  const currentSeconds = Math.floor((progress / 100) * 75);
-  const formattedCurrentTime = `00:${currentSeconds.toString().padStart(2, '0')}`;
 
   return (
     <section className="relative pt-6 pb-12 px-4 max-w-5xl mx-auto text-center">
@@ -58,10 +41,8 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onScrollToPricing }) => {
         {/* Top bar do player */}
         <div className="flex items-center justify-between px-4 py-2.5 bg-darkSurfaceVariant/90 border-b border-darkBorder text-xs">
           <div className="flex items-center gap-2">
-            <span className={`w-2.5 h-2.5 rounded-full ${isPlaying ? 'bg-accentEmerald animate-pulse' : 'bg-red-500'}`}></span>
-            <span className="font-bold text-slate-200">
-              {isPlaying ? 'REPRODUZINDO: VÍDEO DE APRESENTAÇÃO' : 'VÍDEO DE APRESENTAÇÃO (1:15)'}
-            </span>
+            <span className="w-2.5 h-2.5 rounded-full bg-accentEmerald animate-pulse"></span>
+            <span className="font-bold text-slate-200">VÍDEO DE APRESENTAÇÃO • STORY 9:16</span>
           </div>
 
           <button
@@ -77,83 +58,15 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onScrollToPricing }) => {
           </button>
         </div>
 
-        {/* Video Canvas / Mock Player */}
-        <div className="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden group">
-          {/* Imagem de Fundo / Poster */}
-          <img
-            src="/hero_banner.jpg"
-            alt="Prévia do vídeo de apresentação Nexa Play"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            onError={(e) => {
-              // Fallback gradient if image fails
-              (e.target as HTMLElement).style.display = 'none';
-            }}
+        {/* Player vertical do YouTube Shorts */}
+        <div className="relative aspect-[9/16] w-full max-w-sm mx-auto bg-black overflow-hidden">
+          <iframe
+            src={videoUrl}
+            title="Vídeo de apresentação Nexa Play"
+            className="absolute inset-0 h-full w-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
           />
-
-          {/* Overlay gradiente */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30"></div>
-
-          {/* Botão Central de Play/Pause */}
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primaryPurple/90 hover:bg-primaryPurple text-white flex items-center justify-center shadow-xl shadow-primaryPurple/50 border-2 border-white/80 transition-all transform hover:scale-110 active:scale-95"
-            aria-label={isPlaying ? 'Pausar vídeo' : 'Reproduzir vídeo'}
-          >
-            {isPlaying ? (
-              <Pause className="w-8 h-8 fill-current" />
-            ) : (
-              <Play className="w-8 h-8 fill-current ml-1" />
-            )}
-          </button>
-
-          {/* Dica sobre o vídeo */}
-          {!isPlaying && (
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/80 backdrop-blur-sm border border-white/20 text-xs text-white font-medium pointer-events-none">
-              Toque para ver a demonstração na prática
-            </div>
-          )}
-
-          {/* Controles Inferiores */}
-          <div className="absolute bottom-0 inset-x-0 p-3 flex items-center justify-between bg-gradient-to-t from-black/90 to-transparent text-white text-xs">
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="hover:text-secondaryCyan transition-colors"
-              >
-                {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
-              </button>
-              <button
-                onClick={() => setIsMuted(!isMuted)}
-                className="hover:text-secondaryCyan transition-colors"
-              >
-                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-              </button>
-              <span className="font-mono text-[11px] text-slate-300">
-                {formattedCurrentTime} / 01:15
-              </span>
-            </div>
-
-            <button
-              onClick={() => {
-                const elem = document.querySelector('.aspect-video');
-                if (elem && elem.requestFullscreen) {
-                  elem.requestFullscreen();
-                }
-              }}
-              className="hover:text-secondaryCyan transition-colors"
-              title="Tela Cheia"
-            >
-              <Maximize2 className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* Linha de Progresso */}
-        <div className="w-full bg-darkBorder h-1.5 relative overflow-hidden">
-          <div
-            className="bg-gradient-to-r from-primaryPurple to-secondaryCyan h-full transition-all duration-300"
-            style={{ width: `${progress}%` }}
-          ></div>
         </div>
 
         {/* Rodapé da Fonte do Vídeo */}
