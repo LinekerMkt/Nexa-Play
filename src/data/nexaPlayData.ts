@@ -40,7 +40,7 @@ export const planPremium: Plan = {
   id: "premium",
   name: "Plano Premium VIP",
   subtitle: "A experiência definitiva em 4K sem travamentos para toda família",
-  price: "49",
+  price: "47",
   cents: "90",
   originalPrice: "R$ 89,90",
   billingPeriod: "pagamento único",
