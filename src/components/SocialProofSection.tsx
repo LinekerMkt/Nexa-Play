@@ -34,7 +34,7 @@ export const SocialProofSection: React.FC = () => {
   }, [activeTab]);
 
   return (
-    <section className="py-14 px-4 max-w-5xl mx-auto">
+    <section className="w-full max-w-5xl mx-auto px-3 py-10 sm:px-4 sm:py-14">
       {/* Badge Header */}
       <div className="text-center">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accentEmerald/15 border border-accentEmerald/30 text-accentEmerald text-xs font-bold uppercase tracking-wider mb-2">
