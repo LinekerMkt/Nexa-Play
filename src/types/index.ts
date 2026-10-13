@@ -14,6 +14,7 @@ export interface Plan {
   features: string[];
   buttonText: string;
   whatsappMessage: string;
+  checkoutUrl: string;
 }
 
 export interface ChatMessage {
